@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Prompt&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Codex</title>
+
+    <!--APPLE-->
+    <!--apple ios pwa-->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#3584b8" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Codex">
+    <link rel="apple-touch-icon" href="/pwa/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/pwa/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/pwa/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="/pwa/images/apple-touch-icon.png">
+
+    <!--FAV ICO-->
+    <link rel="shortcut icon" type="image/png" href="/pwa/images/icons/72x72.png"/>
+    <!--spalsh-->
+    <!-- iPhone 8 Plus, 7 Plus, 6s Plus, 6 Plus (1242px x 2208px) -->
+    <link rel="apple-touch-startup-image"
+        media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3)"
+        href="/pwa/splash/1242x2208.png">
+    <!-- iPhone 8, 7, 6s, 6 (750px x 1334px) -->
+    <link rel="apple-touch-startup-image"
+        media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)"
+        href="/pwa/splash/750x1334.png">
+    <!-- iPad Pro 12.9" (2048px x 2732px) -->
+    <link rel="apple-touch-startup-image"
+        media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)"
+        href="/pwa/splash/2048x2732.png">
+    <!-- iPad Pro 11” (1668px x 2388px) -->
+    <link rel="apple-touch-startup-image"
+        media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2)"
+        href="/pwa/splash/1668x2388.png">
+    <!-- iPad Pro 10.5" (1668px x 2224px) -->
+    <link rel="apple-touch-startup-image"
+        media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2)"
+        href="/pwa/splash/1668x2224.png">
+    <!-- iPad Mini, Air (1536px x 2048px) -->
+    <link rel="apple-touch-startup-image"
+        media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2)"
+        href="/pwa/splash/1536x2048.png">
+
+    <link rel="manifest" href="/pwa/manifest.json">
+
+  </head>
+  <body>
+    <div class="navbar-fixed">
+      <nav>
+        <div class="nav-wrapper white">
+          <a href="/" class="brand-logo center"><img src="logo.svg" alt="Codex" height="25vh" style="vertical-align: middle;"></a>
+          <ul>
+            <li>
+              <a href="#" id="back"
+                ><i class="material-icons">navigate_before</i></a>
+            </li>
+            <li>
+              <a id="logout" href="/users/logout">Log out</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="alert" id="alert"></div>
+    <div class="progress" id="progress">
+      <div class="indeterminate"></div>
+    </div>
+    <div id="modals"></div>
+    <!-- Modal Structure -->
+    <div id="unit-modal" class="modal">
+      <div class="modal-content">
+        <h5>Add new unit to this subject</h5>
+        <form>
+          <input
+            type="text"
+            name="name"
+            placeholder="Unit name"
+            id="unit-name"
+          />
+
+          <button
+            class="modal-close btn waves-effect light-blue darken-2"
+            id="unit-btn"
+          >
+            Submit
+          </button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat">
+          cancle
+        </a>
+      </div>
+    </div>
+
+
+    <div id="file-modal" class="modal">
+      <div class="modal-content">
+        <h5>Add new file</h5>
+        <form action="#">
+          <div class="file-field input-field">
+            <div class="btn">
+              <span>File</span>
+              <input type="file" name="file" id="file" />
+            </div>
+            <div class="file-path-wrapper">
+              <input class="file-path validate" type="text" />
+            </div>
+          </div>
+
+          <button
+            class="modal-close btn waves-effect light-blue darken-2"
+            id="file-btn"
+          >
+            Submit
+          </button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat">
+          cancle
+        </a>
+      </div>
+    </div>
+
+    <div id="levels">
+      <div class="row">
+        <div class="col m4 s12">
+          <a href="#" class="card-link">
+            <div class="card">
+              <div class="card-content">
+                <p>IGCSE</p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div id="subject">
+      <div class="row" id="subj-row">
+        <!-- <p>No unit in this subject</p> -->
+      </div>
+    </div>
+
+    <!-- <p><a href="#" class="subject-link">GO</a></p> -->
+  </body>
+  <script
+    src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"
+  ></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script type="text/javascript" src="components/subject-auth.js"></script>
+  <script type="text/javascript" src="components/component.js"></script>
+
+  <script>
+    // Register the service worker
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js').then(function (registration) {
+            // Registration was successful
+            console.log('ServiceWorker registration successful with scope: ', registration.scope);
+            alert('there is service workers')
+        }).catch(function (err) {
+            // registration failed :(
+            console.log('ServiceWorker registration failed: ', err);
+        });
+    }
+</script>
+</html>

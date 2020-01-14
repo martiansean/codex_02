@@ -1,0 +1,129 @@
+body, html {
+  height: 100%;
+  margin: 0;
+    font-family: 'Prompt', sans-serif;
+}
+.bg {
+  /* The image used */
+  background-image: url("background.svg");
+  /* opacity: 0.4; */
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* filter: alpha(opacity=20); */
+}
+.signin {
+  text-align: center;
+}
+.login {
+  width: 50%;
+}
+.title {
+  margin-top: 25vh;
+}
+.btn:hover {
+  background-color: #3c83b1;
+}
+.text-landing p {
+  font-size: 30px;
+  color: #696969;
+}
+#levels {
+    margin: 20px;
+}
+#subj-row {
+    margin: 20px;
+}
+i {
+    color: #3584b8;
+}
+.card {
+    background-color: #fff ;
+    text-transform: capitalize;
+    border: 1px solid rgb(231, 231, 231);
+    box-shadow: none;
+    /* transition: 0.2s linear; */
+    color: #2a6086;
+}
+.card:hover {
+    transition: 0.5s linear;
+    background-image: linear-gradient(to right,#2f6c97, #3584b8) !important;
+    box-shadow: #b4b4b4 0px 5px 10px;
+    color: #fff;
+    /* border: none; */
+}
+.card:active {
+    transition: 0.5s linear;
+    background-image: linear-gradient(to right,#2f6c97, #3584b8) !important;
+    box-shadow: #b4b4b4 0px 5px 10px;
+    color: #fff;
+}
+.card .card-content {
+    word-wrap: break-word;
+}
+#file_name {
+    vertical-align: middle;
+    margin-left: 20px;
+    color: #2f6c97;
+    cursor: pointer;
+}
+.card a {
+    color: #2a6086;
+}
+.card a:hover {
+    color: #fff;
+    transition: 0.5s linear;
+}
+.subject-text {
+    text-transform: capitalize;
+    color: #3584b8;
+    font-size: 20px;
+}
+.btn {
+    background-color: #546e7a ;
+}
+.alert {
+    width: 100%;
+    padding: 15px;
+    /* background-color: #e6bd08; */
+    background-color: rgb(41, 189, 98);
+    vertical-align: middle;
+    color: #ffffff;
+}
+
+.warning {
+    background-color: rgb(175, 30, 30);
+}
+
+
+#modals {
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+/* a:hover {
+    color: #fff;
+    transition: 0.5s linear;
+} */
+/*
+.warning {
+    background-color: #a71515;
+}
+.success {
+    background-color: rgb(17, 134, 56);;
+} */
+
+.progress {
+    background-color: #ffffff;
+}
+
+.progress .indeterminate {
+    background-color: #4889b8;
+}
+.file-card {
+    text-transform: none;
+}
