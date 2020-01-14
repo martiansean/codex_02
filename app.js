@@ -156,6 +156,10 @@ app.delete('/file/:id', ensureAuthenticated,(req,res) => {
 app.use('/api', api);
 app.use('/users', users);
 
+app.get('*', function(req, res) {  
+    res.redirect('https://' + req.headers.host + req.url);
+})
+
 app.use(function(req, res, next){
   res.status(404);
   res.sendFile('public/404.html', {root: __dirname } )
@@ -163,9 +167,9 @@ app.use(function(req, res, next){
 
 
 
-const port = 1000;
+// const port = 1000;
 
-app.listen(port, () => {
-  console.log(`Server started on port ${port}`);
-});
-// app.listen(process.env.PORT);
+// app.listen(port, () => {
+//   console.log(`Server started on port ${port}`);
+// });
+app.listen(process.env.PORT);
