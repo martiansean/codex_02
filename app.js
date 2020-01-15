@@ -1,4 +1,5 @@
 const express = require("express");
+const httpsRedirect = require('express-https-redirect');
 const path = require("path");
 const mongoose = require("mongoose")
 const crypto = require("crypto");
@@ -50,6 +51,8 @@ app.use(session({
 // Passport middleware
 app.use(passport.initialize());
 app.use(passport.session());
+
+app.use('/', httpsRedirect());
 
 // Init gfs
 let gfs;
@@ -160,15 +163,6 @@ app.use('/users', users);
 //     res.redirect('https://' + req.headers.host + req.url);
 // })
 
-app.use (function (req, res, next) {
-        if (req.secure) {
-                // request was via https, so do no special handling
-                next();
-        } else {
-                // request was via http, so redirect to https
-                res.redirect('https://' + req.headers.host + req.url);
-        }
-});
 
 app.use(function(req, res, next){
   res.status(404);
