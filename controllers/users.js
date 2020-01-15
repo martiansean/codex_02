@@ -75,7 +75,7 @@ router.post("/register",ensureAuthenticated, (req, res) => {
 // Logout User
 router.get("/logout", (req, res) => {
   req.logout();
-  res.rediect('/login')
+  res.rediect('/')
 });
 
 module.exports = router;
