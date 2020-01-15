@@ -120,6 +120,7 @@ function getSubject() {
     })
 }
 //get file
+//<a id="file_name" href="#" location=${data[i].fileID} filename=${data[i].file_firstname}>DELETE</a>
 
 function getFiles() {
     $('#level').hide()
@@ -140,7 +141,6 @@ function getFiles() {
                                 </div>
                             </div>
                         </a>
-                        <a id="file_name" href="#" location=${data[i].fileID} filename=${data[i].file_firstname}>DELETE</a>
                     </div>`
 
             )
