@@ -4,7 +4,7 @@ self.addEventListener('install', function(event) {
     var offlinePage = new Request('offline-page.html');
     event.waitUntil(
     fetch(offlinePage).then(function(response) {
-      return caches.open('offline2').then(function(cache) {
+      return caches.open('codex-offline').then(function(cache) {
         return cache.put(offlinePage, response);
       });
     }));
@@ -20,31 +20,31 @@ self.addEventListener('install', function(event) {
   });
   
   self.addEventListener('refreshOffline', function(response) {
-    return caches.open('offline2').then(function(cache) {
+    return caches.open('codex-offline').then(function(cache) {
       return cache.put(offlinePage, response);
     });
   });
   
-  self.addEventListener('push', function (event) {
-    var data = event.data.json();
+//   self.addEventListener('push', function (event) {
+//     var data = event.data.json();
   
-    var opts = {
-      body: data.body,
-      icon: data.icon,
-      data: {
-        url: data.url
-      }
-    };
-    event.waitUntil(self.registration.showNotification(data.title, opts));
-  });
+//     var opts = {
+//       body: data.body,
+//       icon: data.icon,
+//       data: {
+//         url: data.url
+//       }
+//     };
+//     event.waitUntil(self.registration.showNotification(data.title, opts));
+//   });
   
-  self.addEventListener('notificationclick', function(event) {
-    var data = event.notification.data;
+//   self.addEventListener('notificationclick', function(event) {
+//     var data = event.notification.data;
   
-    event.notification.close();
+//     event.notification.close();
   
-    event.waitUntil(
-      clients.openWindow(data.url)
-    );
-  });
+//     event.waitUntil(
+//       clients.openWindow(data.url)
+//     );
+//   });
   
