@@ -25,26 +25,26 @@ self.addEventListener('install', function(event) {
     });
   });
   
-//   self.addEventListener('push', function (event) {
-//     var data = event.data.json();
+  self.addEventListener('push', function (event) {
+    var data = event.data.json();
   
-//     var opts = {
-//       body: data.body,
-//       icon: data.icon,
-//       data: {
-//         url: data.url
-//       }
-//     };
-//     event.waitUntil(self.registration.showNotification(data.title, opts));
-//   });
+    var opts = {
+      body: data.body,
+      icon: data.icon,
+      data: {
+        url: data.url
+      }
+    };
+    event.waitUntil(self.registration.showNotification(data.title, opts));
+  });
   
-//   self.addEventListener('notificationclick', function(event) {
-//     var data = event.notification.data;
+  self.addEventListener('notificationclick', function(event) {
+    var data = event.notification.data;
   
-//     event.notification.close();
+    event.notification.close();
   
-//     event.waitUntil(
-//       clients.openWindow(data.url)
-//     );
-//   });
+    event.waitUntil(
+      clients.openWindow(data.url)
+    );
+  });
   
