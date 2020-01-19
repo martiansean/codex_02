@@ -32,7 +32,7 @@ const users = require('./controllers/users');
 // Map global promise - get rid of warning
 mongoose.Promise = global.Promise;
 // Connect to mongoose
-const MongoURI = 'mongodb://sean:sean@dataprep-shard-00-00-syum3.gcp.mongodb.net:27017,dataprep-shard-00-01-syum3.gcp.mongodb.net:27017,dataprep-shard-00-02-syum3.gcp.mongodb.net:27017/test?ssl=true&replicaSet=Dataprep-shard-0&authSource=admin&retryWrites=true&w=majority'
+const MongoURI = 'mongodb://codex:codex@codex-shard-00-00-9o8kc.azure.mongodb.net:27017,codex-shard-00-01-9o8kc.azure.mongodb.net:27017,codex-shard-00-02-9o8kc.azure.mongodb.net:27017/test?ssl=true&replicaSet=codex-shard-0&authSource=admin&retryWrites=true&w=majority'
 const conn = mongoose.connect(
   MongoURI,
   {
