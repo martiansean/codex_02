@@ -13,7 +13,7 @@ const User = mongoose.model("users");
 // Login Form POST
 
 router.post('/login', function(req, res, next) {
-  passport.authenticate('local', function(err, user, info) {
+  passport.authenticate('local', { session: false }, function(err, user, info) {
     if (err) { return next(err); }
     if (!user) { return res.send({text:'wrong information',error:true}) }
     req.logIn(user, function(err) {
